@@ -27,6 +27,4 @@ functions:
       - http:
           path: api/token/{code}
           method: get
-          cors:
-            origin: "*"
-            allowCredentials: true
+          cors: true
