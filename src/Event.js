@@ -9,9 +9,16 @@ class Event extends Component {
   }
 
   handleButtonClicked = () => {
-    this.setState({
-      showDetails: true,
-    })
+    if (!this.state.showDetails) {
+      this.setState({
+        showDetails: true,
+      })
+    }
+    else {
+      this.setState({
+        showDetails: false,
+      })
+    }
   }
 
   render() {

@@ -85,4 +85,10 @@ describe('<Event /> component', () => {
     EventWrapper.find('.details').simulate('click');
     expect(EventWrapper.state('showDetails')).toBe(true);
   });
+
+  test('event details collapse when button is clicked', () => {
+    expect(EventWrapper.state('showDetails')).toEqual(true);
+    EventWrapper.find('.details').simulate('click');
+    expect(EventWrapper.state('showDetails')).toBe(false);
+  });
 });
