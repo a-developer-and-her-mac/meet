@@ -23,11 +23,11 @@ class Event extends Component {
     return (
     <div className='event'>
       <h2 className='summary'>{event.summary}</h2>
-      <p className='description'></p>
-      <p className='time'></p>
-      <p className='timezone'></p>
-      <p className='location'></p>
-      <button className='details' onClick={() => this.handleButtonClicked()}></button>
+      <p className='description'>{event.description}</p>
+      <p className='time'>{event.start.dateTime}</p>
+      <p className='timezone'>{event.start.timeZone}</p>
+      <p className='location'>{event.location}</p>
+      <button className='details-btn' onClick={() => this.handleButtonClicked()}>Details</button>
     </div>
     )
   }
