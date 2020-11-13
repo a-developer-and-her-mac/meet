@@ -1,7 +1,8 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 .App {
   text-align: center;
   padding: 2% 5%;
+  font-family: Inconsolata, sans-serif;
 }
 
 .App * {
@@ -50,6 +51,9 @@ input[type="number"] {
   position: relative;
 }
 
+.CitySearch-title {
+  margin-top: 20px;
+}
 .suggestions {
   width: 250px;
   position: absolute;
@@ -197,6 +201,45 @@ input[type="number"] {
   font-size: 14px;
   letter-spacing: 0.2px;
   font-family: "Roboto";
+}
+
+.circle-sketch-highlight{
+  position:relative;
+}
+.circle-sketch-highlight:before{
+  content:"";
+  z-index:-1;
+  left:-0.5em;
+  top:-0.1em;
+  border-width:2px;
+  border-style:solid;
+  border-color:purple;
+  position:absolute;
+  border-right-color:transparent;
+  width:100%;
+  height:1em;
+  transform:rotate(2deg);
+  opacity:0.7;
+  border-radius:50%;
+  padding:0.1em 0.25em;
+}
+.circle-sketch-highlight:after{
+  content:"";
+  z-index:-1;
+  left:-0.5em;
+  top:0.1em;
+  padding:0.1em 0.25em;
+  border-width:2px;
+  border-style:solid;
+  border-color:purple;
+  border-left-color:transparent;
+  border-top-color:transparent;
+  position:absolute;
+  width:100%;
+  height:1em;
+  transform:rotate(-1deg);
+  opacity:0.7;
+  border-radius:50%;
 }
 
 
