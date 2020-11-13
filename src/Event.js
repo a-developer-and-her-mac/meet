@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import EventList from './EventList';
-import { mockData } from './mock-data';
 
 class Event extends Component {
-
   state = {
     showDetails: false,
   }
@@ -25,7 +22,7 @@ class Event extends Component {
     const { event } = this.props;
     return (
     <div className='event'>
-      <h2 className='summary'></h2>
+      <h2 className='summary'>{event.summary}</h2>
       <p className='description'></p>
       <p className='time'></p>
       <p className='timezone'></p>
