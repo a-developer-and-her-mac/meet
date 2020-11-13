@@ -10,7 +10,7 @@ export const extractLocations = (events) => {
 
 const checkToken = async (accessToken) => {
   const result = await fetch(
-    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token/${accessToken}`
+    `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
     .then((res) => res.json())
     .catch((error) => error.json());
@@ -30,7 +30,7 @@ export const getEvents = async () => {
 
   if (token) {
     removeQuery();
-    const url = `https://wyqhkyib07.execute-api.us-west-2.amazonaws.com/dev/api/get-events/`;
+    const url = `https://wyqhkyib07.execute-api.us-west-2.amazonaws.com/dev/api/get-events/${token}`;
     const result = await axios.get(url);
     if (result.data) {
       let locations = extractLocations(result.data.events);
