@@ -77,18 +77,18 @@ describe('<Event /> component', () => {
   })
 
   test('render the details button', () => {
-    expect(EventWrapper.find('.details')).toHaveLength(1);
+    expect(EventWrapper.find('.details-btn')).toHaveLength(1);
   })
 
   test('change state when details button is clicked', () => {
     expect(EventWrapper.state('showDetails')).toEqual(false);
-    EventWrapper.find('.details').simulate('click');
+    EventWrapper.find('.details-btn').simulate('click');
     expect(EventWrapper.state('showDetails')).toBe(true);
   });
 
   test('event details collapse when button is clicked', () => {
     expect(EventWrapper.state('showDetails')).toEqual(true);
-    EventWrapper.find('.details').simulate('click');
+    EventWrapper.find('.details-btn').simulate('click');
     expect(EventWrapper.state('showDetails')).toBe(false);
   });
 });
