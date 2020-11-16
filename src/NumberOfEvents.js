@@ -3,12 +3,15 @@ import React, { Component } from 'react';
 class NumberOfEvents extends Component {
 
   state = {
-    query: '32',
+    numberOfEvents: 32,
   }
 
   handleInputChanged = (event) => {
     const value = event.target.value;
-    this.setState({ query: value });
+    this.setState({
+       numberOfEvents: value
+     });
+     this.props.updateEvents(null, value);
   }
 
   render() {
@@ -17,7 +20,7 @@ class NumberOfEvents extends Component {
         <input
           type='text'
           className='eventNumber'
-          value={this.state.query}
+          value={this.state.numberOfEvents}
           onChange={this.handleInputChanged}>
         </input>
       </div>
