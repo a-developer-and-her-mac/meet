@@ -213,7 +213,7 @@ input[type="number"] {
   top:-0.1em;
   border-width:2px;
   border-style:solid;
-  border-color:purple;
+  border-color:#790c5a;
   position:absolute;
   border-right-color:transparent;
   width:100%;
@@ -231,7 +231,7 @@ input[type="number"] {
   padding:0.1em 0.25em;
   border-width:2px;
   border-style:solid;
-  border-color:purple;
+  border-color:#790c5a;
   border-left-color:transparent;
   border-top-color:transparent;
   position:absolute;
@@ -242,6 +242,9 @@ input[type="number"] {
   border-radius:50%;
 }
 
+.summary {
+  text-decoration: #790c5a double underline;
+}
 
 
 @media only screen and (min-width: 992px) {
