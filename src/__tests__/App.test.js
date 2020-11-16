@@ -74,15 +74,19 @@ describe('<App /> integration', () => {
     AppWrapper.unmount();
   });
 
-  test('change "numberOfEvents" state in App', () => {
+  test('change list of events after user updates number', () => {
     const AppWrapper = mount(<App />);
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
+    AppWrapper.instance().updateEvents = jest.fn();
+    AppWrapper.instance().forceUpdate();
     NumberOfEventsWrapper.setState({ numberOfEvents: 32 });
     const eventObject = { target: { value: 1 }};
     NumberOfEventsWrapper.find('.eventNumber').simulate('change', eventObject);
     expect(NumberOfEventsWrapper.state('numberOfEvents')).toBe(1);
-    const numberOfEvents = NumberOfEventsWrapper.state('numberOfEvents');
-    expect(AppWrapper.state('numberOfEvents')).toEqual(numberOfEvents);
+    expect(AppWrapper.instance().updateEvents).toHaveBeenCalledWith(
+      null,
+      1
+    );
     AppWrapper.unmount();
   });
 });
