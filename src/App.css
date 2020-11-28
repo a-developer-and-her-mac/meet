@@ -138,8 +138,8 @@ input[type="number"] {
 }
 
 .Alert {
-  position: fixed;
-  top: 20px;
+  font-family: Inconsolata, sans-serif;
+  margin-bottom: 30px;
 }
 
 .data-vis-wrapper {
