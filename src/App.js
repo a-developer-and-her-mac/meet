@@ -30,7 +30,8 @@ class App extends Component {
           currentLocation: location,
         });
       });
-    } else {
+    } 
+    else {
       getEvents().then((events) => {
         const locationEvents =
           currentLocation === 'all'
@@ -45,7 +46,7 @@ class App extends Component {
         });
       });
     }
-  };
+  }
   
   componentDidMount() {
     this.mounted = true;
