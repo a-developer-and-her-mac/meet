@@ -7,6 +7,7 @@ import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
+import { InfoAlert } from './Alert';
 
 class App extends Component {
   state = {
@@ -50,6 +51,15 @@ class App extends Component {
   
   componentDidMount() {
     this.mounted = true;
+    if (!navigator.onLine){
+      this.setState({
+        InfoAlert: 'You are offline. Data has been loaded from the cache.'
+      });
+    } else {
+      this.setState({
+        InfoAlert: '',
+      });
+    }
     getEvents().then((events) => {
       if (this.mounted) {
         this.setState({
@@ -71,6 +81,7 @@ class App extends Component {
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
       <h2>Number of events:</h2>
       <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
+      <InfoAlert text={this.state.InfoAlert} />
       <EventList events={this.state.events} />
       </div>
     );
