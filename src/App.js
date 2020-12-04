@@ -15,6 +15,7 @@ class App extends Component {
     locations: [],
     numberOfEvents: 32,
     currentLocation: 'all',
+    infoAlert: ''
   }
 
   updateEvents = (location, eventCount) => {
@@ -53,11 +54,7 @@ class App extends Component {
     this.mounted = true;
     if (!navigator.onLine){
       this.setState({
-        InfoAlert: 'You are offline. Data has been loaded from the cache.'
-      });
-    } else {
-      this.setState({
-        InfoAlert: '',
+        infoAlert: 'You are offline. Data has been loaded from the cache.'
       });
     }
     getEvents().then((events) => {
@@ -81,7 +78,7 @@ class App extends Component {
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
       <h2>Number of events:</h2>
       <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
-      <InfoAlert text={this.state.InfoAlert} />
+      <InfoAlert text={this.state.infoAlert} />
       <EventList events={this.state.events} />
       </div>
     );
