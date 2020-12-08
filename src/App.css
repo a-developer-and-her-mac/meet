@@ -139,7 +139,9 @@ input[type="number"] {
 
 .Alert {
   font-family: Inconsolata, sans-serif;
+  font-size: 20px;
   margin-bottom: 30px;
+  text-decoration: underline wavy black;
 }
 
 .data-vis-wrapper {
