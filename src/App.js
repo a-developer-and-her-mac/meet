@@ -8,6 +8,7 @@ import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { InfoAlert } from './Alert';
+import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 
 class App extends Component {
   state = {
@@ -49,6 +50,17 @@ class App extends Component {
       });
     }
   }
+
+  getData = () => {
+    const { locations, events } = this.state;
+    const data = locations.map((location) => {
+      const number = events.filter((event) => event.location
+      === location).length
+      const city = location.split(' ').shift()
+      return { city, number };
+    })
+    return data;
+  };
   
   componentDidMount() {
     this.mounted = true;
@@ -78,6 +90,20 @@ class App extends Component {
       <CitySearch locations={this.state.locations} updateEvents={this.updateEvents}/>
       <h2>Number of events:</h2>
       <NumberOfEvents numberOfEvents={this.state.numberOfEvents} updateEvents={this.updateEvents}/>
+      <h4>Events in each city</h4>
+      <ResponsiveContainer height={400}>
+      <ScatterChart
+       margin={{
+         top: 20, right: 20, bottom: 20, left: 20,
+       }}
+      >
+        <CartesianGrid />
+        <XAxis type='category' dataKey='city' name='city' />
+        <YAxis type='number' dataKey='number' name='event number' />
+        <Tooltip cursor={{ strokeDasharray: '3 3' }} />
+        <Scatter data={this.getData()} fill="#8884d8"/>
+      </ScatterChart>
+      </ResponsiveContainer>
       <InfoAlert text={this.state.infoAlert} />
       <EventList events={this.state.events} />
       </div>
