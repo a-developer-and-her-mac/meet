@@ -104,6 +104,11 @@ input[type="number"] {
   border: 2px solid #790c5a;
 }
 
+.details-btn:hover, .details-btn:focus {
+  background-color: #790c5a;
+  color: white;
+}
+
 .name {
   font-size: 18px;
   font-weight: 600;
