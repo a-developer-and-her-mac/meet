@@ -102,6 +102,7 @@ input[type="number"] {
   outline: none;
   cursor: pointer;
   border: 2px solid #790c5a;
+  background-color: white;
 }
 
 .details-btn:hover, .details-btn:focus {
